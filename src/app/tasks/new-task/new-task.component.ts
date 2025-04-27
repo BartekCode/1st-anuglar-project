@@ -1,15 +1,11 @@
-import {Component, EventEmitter, Input, input, Output, signal} from '@angular/core';
+import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {NewTask, Task} from "../task/task.model";
 import {TaskService} from "../tasks.service";
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  // by móc korzystac z rozszerzenia ngModel do manipulowania danymi w formularzu, oraz innymi
-  imports: [
-    FormsModule
-  ],
+  standalone: false,
+  // by móc korzystac z rozszerzenia ngModel do manipulowania danymi w formularzu, oraz innymi,
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })

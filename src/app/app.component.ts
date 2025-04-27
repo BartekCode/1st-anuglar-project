@@ -1,14 +1,10 @@
-import { Component } from '@angular/core';
-import { HeaderComponent} from "./header/header.component"; // importujemy nasz komponent
-import { UserComponent } from "./user/user.component";
+import {Component} from '@angular/core';
 import {DUMMY_USERS} from "./dummy-users";
-import {TasksComponent} from "./tasks/tasks.component";
-import {NgForOf, NgIf} from "@angular/common"; // import kolejnego komponentu
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [HeaderComponent, UserComponent, TasksComponent, NgForOf, NgIf], //dodajemy nasze komponenty do importowanych rzeczy
+  standalone: false, //by mozna bylo zrobic module
+//  imports: [HeaderComponent, UserComponent, TasksComponent, NgForOf, NgIf], //dodajemy nasze komponenty do importowanych rzeczy
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
