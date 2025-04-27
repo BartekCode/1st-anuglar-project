@@ -1,0 +1,26 @@
+<!--warunkowo wyswietlamy nowy component-->
+<!--nasłuchujemy tez na event z app-new-task 'cancel',
+ jezeli jest emitowany uruchamiamy metode onCancelNewTaskForm-->
+@if (isAddingNewTask){
+  <app-new-task [userId]="userId()" (close)="onCloseAddNewTask()"/> <!--nasłuchujemy na 2 eventy-->
+}
+<section id="tasks">
+  <header>
+    <h2>{{ name() }}'s Tasks</h2>
+    <menu>
+<!-- odpalamy metodę na kliknięciu w button -->
+      <button (click)="onAddNewTask()">
+        Add Task
+      </button>
+    </menu>
+  </header>
+  <ul>
+<!--  korzystamy z metody get ktora zwraca taski wybranego usera  -->
+    @for (task of selectedUsersTasks; track task.id){
+      <li>
+        <app-task [task]="task"/>
+      </li>
+    }
+  </ul>
+</section>
+

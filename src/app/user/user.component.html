@@ -1,0 +1,24 @@
+<app-card>  <!--  uzywamy nasz wrapper component "div" ze stylowaniem -->
+<!--  ustaw class .active jezeli selected == true -->
+  <button [class.active]="selected" (click)="onSelectedUser()">
+    <img
+      [src]="imagePath()"
+      [alt]= "user.name"
+    />
+    <span>{{ user.name }}</span>
+  </button>
+</app-card>
+
+
+<!--<div>-->
+<!--  <button (click)="onSelectUser()">-->
+<!--    <img-->
+<!--      [src]="imagePathSignal()"-->
+<!--      [alt]="selectedUser().name"-->
+<!--    />-->
+<!--&lt;!&ndash;      [alt]="selectedUser.name"&ndash;&gt;-->
+<!--    <span>{{ selectedUser().name }}</span> &lt;!&ndash;  jezeli signal to jako wywołanie metody  &ndash;&gt;-->
+<!--&lt;!&ndash;  tak normalnie jezeli to zwykly obiekt  &ndash;&gt;-->
+<!--&lt;!&ndash;    <span>{{ selectedUser.name }}</span>&ndash;&gt;-->
+<!--  </button>-->
+<!--</div>-->

@@ -1,0 +1,55 @@
+<!--dodajemy nasz komponent-->
+<app-header></app-header>
+<main>
+  <!-- tworzymy unorderd list z naszego komponentu dodajmy mu id do stylowania -->
+  <ul id="users">
+    <!-- pętla na kolekcji users, track user.id by jak dodamy cos do listy angular nie musial renderowac calej nowej-->
+    <!-- angular polaczy track id z kazdym obiektem user -->
+    @for (user of users; track  user.id) {
+      <li>
+        <app-user
+          [user] = "user"
+          [selected] = "user.id === selectedUserId"
+          (select)="onSelectUser($event.id)"
+        />
+      </li>
+
+<!--      <li *ngFor="let user of users">-->
+<!--        <app-user-->
+<!--          [user] = "user"-->
+<!--          (select)="onSelectUser($event.id)"-->
+<!--        />-->
+<!--      </li>-->
+      <!-- listen to our custom event, $event bedzie przetrzymywac dane które zostały emitowane przez event -->
+    }
+<!--    <li>-->
+      <!--nasz user componenet i avatar-->
+<!--      <app-user-->
+<!--        [id]="users[2].id"-->
+<!--        [avatar]="users[2].avatar"-->
+<!--        [name]="users[2].name"-->
+<!--        (select)="onSelectUser($event.id)"-->
+<!--      />-->
+<!--    </li>-->
+  </ul>
+
+
+<!-- jezeli selectedUser posiada wartość -->
+  @if (selectedUser){
+  <!--  uzycie metody get -->
+  <app-tasks
+   [name]="selectedUser.name"
+   [userId]="selectedUser.id"
+  />
+  } @else {
+    <p id = "fallback">Select a user to see their tasks!</p>
+  }
+
+<!-- if(selectedUser-->
+<!-- else na # w ng-template -->
+<!--  <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser.name" />-->
+<!--&lt;!&ndash; else &ndash;&gt;-->
+<!--    <ng-template #fallback>-->
+<!--      <p id="fallback">Select a user to see their tasks!</p>-->
+<!--    </ng-template>-->
+</main>
